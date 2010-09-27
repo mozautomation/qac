@@ -1,0 +1,123 @@
+<?xml version="1.0"?><!-- -*- Mode: HTML -*-
+* ***** BEGIN LICENSE BLOCK *****
+* Version: MPL 1.1/GPL 2.0/LGPL 2.1
+*
+* The contents of this file are subject to the Mozilla Public License Version
+* 1.1 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+* http://www.mozilla.org/MPL/
+*
+* Software distributed under the License is distributed on an "AS IS" basis,
+* WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+* for the specific language governing rights and limitations under the
+* License.
+*
+* The Original Code is the Mozilla Community QA Extension
+*
+* The Initial Developer of the Original Code is the Mozilla Corporation.
+* Portions created by the Initial Developer are Copyright (C) 2009
+* the Initial Developer. All Rights Reserved.
+*
+* Contributor(s):
+*  Zach Lipton <zach@zachlipton.com>
+*  Ben Hsieh <ben.hsieh@gmail.com>  (rewrite)
+*  Heather Arthur <harthur@cmu.edu> (2nd rewrite)
+*
+* Alternatively, the contents of this file may be used under the terms of
+* either the GNU General Public License Version 2 or later (the "GPL"), or
+* the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+* in which case the provisions of the GPL or the LGPL are applicable instead
+* of those above. If you wish to allow use of your version of this file only
+* under the terms of either the GPL or the LGPL, and not to allow others to
+* use your version of this file under the terms of the MPL, indicate your
+* decision by deleting the provisions above and replace them with the notice
+* and other provisions required by the GPL or the LGPL. If you do not delete
+* the provisions above, a recipient may use your version of this file under
+* the terms of any one of the MPL, the GPL or the LGPL.
+*
+* ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE overlay [
+<!ENTITY % qaDTD SYSTEM "chrome://qa/locale/qa.dtd"> %qaDTD;
+]>
+
+<!-- uses global icon at chrome://global/skin/icons/loading_16.png -->
+
+<overlay id="qa-bugzilla-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+
+<tabpanel id="qa-tab-bugzilla">
+  <vbox flex="1" top="0px" left="0px">
+    <groupbox flex="1">
+      <hbox align="center">
+        <caption id="bug-caption" label="&qa.bugzilla.report;"/>
+        <hbox flex="1" pack="end">
+          <label id="bug-qac-link" class="text-link" value="&qa.bugzilla.qaclink;"/>
+        </hbox>
+      </hbox>
+       <hbox id="bug-submit-loading" hidden="true" align="center">
+        <label value="&qa.bugzilla.submit.loading;"/>
+        <image src="chrome://global/skin/icons/loading_16.png"/>
+       </hbox>
+      <hbox id="bug-login-loading" hidden="true" align="center">
+        <label value="&qa.bugzilla.login.loading;"/>
+        <image src="chrome://global/skin/icons/loading_16.png"/>
+       </hbox>
+      <hbox id="bug-success-box" hidden="true" class="bug-error-box" align="center">
+        <label id="bug-success-label" value="&qa.bugzilla.submitted;"
+               class="bug-error-label bug-success" crop="end"/>
+        <label id="bug-success-link" target="_blank" class="text-link"/>
+        <hbox flex="1" pack="end">
+          <toolbarbutton class="qa-closebutton" id="bug-success-close"
+             oncommand="bugzilla.hideBox('bug-success-box');" />
+        </hbox>
+      </hbox>
+      <hbox id="bug-error-box" hidden="true" class="bug-error-box">
+        <label id="bug-error-label" class="bug-error-label error-label"
+               crop="end"/>
+        <hbox flex="1" pack="end">
+          <toolbarbutton class="qa-closebutton" id="bug-dupes-close"
+             oncommand="bugzilla.hideBox('bug-error-box');" />
+        </hbox>
+      </hbox>
+     
+      <vbox id="bug-summary-box">
+        <label id="bug-summary-label" value="&qa.bugzilla.summary;"/>
+        <textbox id="bug-summary-text"
+                 onchange="bugzilla.showDupes(event);"/>
+      </vbox>
+      
+      <hbox id="bug-dupes-loading" hidden="true" align="center">
+        <label value="&qa.bugzilla.dupes.loading;"/>
+        <image src="chrome://global/skin/icons/loading_16.png"/>
+      </hbox>
+      <vbox id="bug-dupes-box" hidden="true">
+        <hbox align="center">      
+          <label id="bug-dupes-label" value="&qa.bugzilla.checkdupes;"/>
+          <hbox flex="1" pack="end">
+            <toolbarbutton class="qa-closebutton" id="bug-dupes-close"
+               oncommand="bugzilla.hideBox('bug-dupes-box');" />
+          </hbox>
+        </hbox>
+        <tree id="dupes-tree" flex="1" rows="5">
+          <treecols>
+            <treecol label="&qa.bugzilla.dupes.id;" flex="1"/>
+            <splitter class="tree-splitter" ordinal="2"/> 
+            <treecol label="&qa.bugzilla.dupes.summ;" flex="7"/>
+          </treecols>
+          <treechildren id="dupes-treechildren" flex="1"
+                        ondblclick="bugzilla.openSelectedBug(event);"/>
+        </tree>
+      </vbox>
+      <vbox id="bug-description-box" flex="1">
+        <label id="bug-description-label" value= "&qa.bugzilla.description;" />
+        <textbox id="bug-description-text" multiline="true" flex="1"/>
+      </vbox>
+    </groupbox>
+    <button id="bug-submit-button" label="&qa.bugzilla.submit;"
+            oncommand="bugzilla.submitBug();"/>
+  </vbox>
+</tabpanel>
+
+</overlay>

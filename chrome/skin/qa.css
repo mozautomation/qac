@@ -1,0 +1,524 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is the Mozilla Community QA Extension
+ *
+ * The Initial Developer of the Original Code is the Mozilla Corporation.
+ * Portions created by the Initial Developer are Copyright (C) 2006
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *  Zach Lipton <zach@zachlipton.com>
+ *  Zach Linder <zakness@gmail.com>
+ *  Ben Hsieh <ben.hsieh@gmail.com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+@import url(chrome://global/skin/);
+
+@namespace html "http://www.w3.org/1999/xhtml";
+
+#qa-pass {
+  background: #99ff99;
+  display: none;
+}
+
+/*-------------------------------
+               HTML
+  -------------------------------*/
+
+#qa_tabbox html|ul, #qa_tabbox html|ol {
+  margin: 0;
+  padding: 0;
+}
+#qa_tabbox html|ul li {
+  list-style-type: square;
+  margin-bottom: 0.4em;
+}
+
+#qa_tabbox html|a,
+#qa_tabbox html|a:link,
+#qa_tabbox html|a:visited {
+  font-weight: bold;
+  color: #0067ac;
+}
+#qa_tabbox html|a:focus,
+#qa_tabbox html|a:hover,
+#qa_tabbox html|a:active {
+  color: #333;
+}
+/*remove bullets for everything but lists contained inside testcase data */
+html|li {
+  list-style-type: none !important;
+}
+#qa-tab-litmus html|ul html|li {
+  list-style-type: disc !important;
+}
+#qa-tab-litmus html|ol html|li {
+  list-style-type: decimal !important;
+}
+
+#qa-tab-litmus html|ul, #qa-tab-litmus html|ol {
+  padding-left: 20px;
+}
+
+
+
+/*-------------------------------
+               TABS
+  -------------------------------*/
+#qa_tabbox #qa_tabrow {
+  height: 30px !important;
+  padding-top: 5px !important;
+}
+
+#qa_tabbox .tab-icon-image {
+  list-style-image: none;
+  width: 0;
+}
+
+#qa_tabbox #qa-tabbar-qmo {
+  list-style-image: url(qmo-16px.png);
+  text-align: right;
+  width: 24px;
+}
+
+tab:focus > .tab-middle {
+  outline: 1px none invert !important;
+}
+
+/*-------------------------------
+               PANELS
+  -------------------------------*/
+#qa_tabbox tabpanel {
+  line-height: 1.6;
+  background-color: white;
+}
+
+#qa_tabbox tabpanels {
+  background-color: white;
+  border-top: 1px solid #ACA899;
+  margin-top: 0px;
+}
+
+#qa_tabbox groupbox {
+  background-color: white;
+}
+#qa_tabbox caption {
+  font: bold 12px helvetica, arial, sans-serif;
+  color: #ec891d;
+  background-color: white;
+  padding: 0;
+}
+
+#qa-qmo-help,
+#qa-qmo-events,
+#qa-qmo-forumposts,
+.box-mheight {
+}
+
+#qa-qmo-latest {
+  overflow: auto;
+  min-height: 430px;
+  max-height: 430px;
+}
+
+/*-------------------------------
+               LITMUS
+  -------------------------------*/
+
+#litmus-selecttests-dialog {
+  height: 300px;
+  width: 390px;
+}
+
+#litmus-testcase-summary {
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+#litmus-testcase-id {
+  margin-left: 8px;
+}
+
+#litmus-selecttests-dialog menulist {
+  margin-bottom: 10px;
+}
+
+#litmus-selecttests-desc {
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+#litmus-testcase-steps, #litmus-testcase-expected {
+  overflow: auto;
+}
+
+#litmus-testcase-steps {
+  min-height: 210px;
+  max-height: 210px;
+  min-width: 374px;
+  max-width: 374px;
+}
+
+#litmus-testcase-expected {
+  min-height: 180px;
+  max-height: 180px;
+  min-width: 374px;
+  max-width: 374px;
+}
+
+#litmus-testcase-comment {
+  min-width: 270px;
+  max-width: 270px;
+  min-height: 70px;
+  max-height: 70px;
+  margin-right: 4px;
+}
+
+#litmus-testcase-skip {
+  min-width: 54px;
+  max-width: 54px;
+  min-height: 26px;
+  max-height: 26px;
+}
+
+#litmus-summary-box {
+  margin-top: 8px;
+  margin-left: 2px;
+  max-width: 390px;
+  min-width: 390px;
+}
+
+#litmus-steps-box {
+  margin-top: 6px;
+  max-height: 230px;
+  min-height: 230px;
+}
+
+#litmus-expected-box {
+  margin-top: 10px;
+  max-height: 200px;
+  min-height: 200px;
+}
+
+#litmus-results-box {
+  margin-top: 10px;
+}
+
+#litmus-selecttests-buttons {
+  padding-top: 26px;
+}
+
+#litmus-testcase-pass {
+  -moz-appearance: none;
+  background-color: #99FF99;
+  border: 2px outset #88FF99;
+  max-height: 21px;
+  min-height: 21px;
+}
+
+#litmus-testcase-fail {
+  -moz-appearance: none;
+  background-color: #FF9999;
+  border: 2px outset #FF9988;
+  max-height: 21px;
+  min-height: 21px;
+}
+
+#litmus-testcase-unclear {
+  -moz-appearance: none;
+  background-color: #FFFF99;
+  border: 2px outset #EEFF99;
+  max-height: 21px;
+  min-height: 21px;
+}
+
+#litmus-submit-loading {
+  margin-left: 100px;
+}
+
+
+/*-------------------------------
+            BUGZILLA
+  -------------------------------*/
+
+#bug-summary-text {
+  width: 360px;
+}
+
+#bug-description-text {
+  height: 300px;
+  width: 360px;
+}
+
+#bug-summary-label, #bug-description-label, 
+#bug-dupes-label {
+  font-weight: bold;
+}
+
+#bug-qac-link {
+  font-size: .85em;
+}
+
+#bug-dupes-label {
+  color: red;
+}
+
+#bug-dupes-loading {
+  margin-top: 10px;
+}
+
+.bug-error-box {
+  min-width: 360px;
+  max-width : 360px;
+}
+
+.bug-error-label {
+ max-width: 340px;
+}
+
+.qa-closebutton {
+  -moz-appearance: none;
+  list-style-image: url("chrome://global/skin/icons/close.png");
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+  padding: 4px 2px;
+  margin: 0px;
+  border: none;
+}
+
+#bug-summary-box {
+  margin-top: 4px;
+  width: 380px;
+}
+
+#bug-dupes-box {
+  margin-top: 10px;
+}
+
+#bug-description-box {
+  margin-top: 10px;
+}
+
+#dupes-box {
+  height: 300px;
+  width: 400px;
+}
+
+#bug-submit-button {
+  margin-left: 120px;
+  margin-right: 110px;
+}
+
+/*-------------------------------
+               NOTIFY
+  -------------------------------*/
+
+#qa-notify {
+  right: 18px;
+  bottom: 21px;
+  position: fixed;
+  border: 1px solid grey;
+  background-color: white;
+  background-image: url("logolight.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.qa-notify {
+  height: 140px;
+  width: 420px;
+}
+
+#qa-notify-box {
+  padding: 0px 6px 6px 6px;
+  display: table;
+}
+
+#qa-notify-header {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+/*-------------------------------
+               GENERAL
+  -------------------------------*/
+.dialog-box {
+  background-color: white;
+  border: 2px solid #555555;
+  padding: 22px 22px 2px 22px;
+}
+
+.dialog-screen {
+  width: 404px;
+  height: 690px;
+  background-color: #888888;
+  opacity: .5;
+}
+
+.glow-green {
+  -moz-box-shadow: 0 0 1em 0.5em #28CE49;
+}
+
+.glow-red {
+  -moz-box-shadow: 0 0 1em 0.5em #FF0000;
+}
+
+.list {
+  padding-left: 12px;
+}
+
+.error-label {
+  color: red;
+  font-weight: bold;
+}
+
+.success-label {
+  color: green;
+  font-weight: bold;
+}
+
+/*-------------------------------
+               FIRSTRUN
+  -------------------------------*/
+#qa-firstrun-regbutton {
+  background-color: #EF8A1D;
+}
+
+#qa-firstrun-desc {
+  font: bold 12px helvetica, arial, sans-serif;
+  color: #ec891d;
+  padding: 0;
+}
+
+
+/*-------------------
+      MAC ONLY
+----------------------*/
+
+#qa_tabbox[OS="Darwin"] tabpanels {
+  padding : 10px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-summary-box {
+  max-width: 372px;
+  min-width: 372px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-summary {
+  margin-left: 8px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-pass {
+  margin-bottom: 2px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-fail {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-unclear {
+  margin-top: 2px;
+}
+
+#qa_tabbox[OS="Darwin"] #qa_tabbox tabpanels {
+  padding-top: 8px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-results-box {
+  margin-top: 6px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-expected {
+  margin-top: 0px !important;
+  min-height: 158px;
+  max-height: 158px;
+  min-width: 356px;
+  max-width: 356px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-expected-box {
+  min-height: 182px;
+  max-height: 182px;
+  margin-top: 6px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-steps-box {
+  max-height: 210px;
+  min-height: 210px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-steps {
+  min-height: 184px;
+  max-height: 184px;
+  min-width: 356px;
+  max-width: 356px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-skip {
+  margin-bottom: 0px;
+  margin-top: 2px;
+  min-height: 16px;
+  max-height: 16px;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-testcase-comment {
+  min-width: 258px;
+  max-width: 258px;
+}
+
+#qa_tabbox[OS="Darwin"] .qa-closebutton {
+  -moz-appearance: none;
+  list-style-image: url("chrome://global/skin/icons/closetab.png");
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+  padding: 0;
+  background : none;
+  margin: 1px 0 0;
+  border: none;
+}
+
+#qa_tabbox[OS="Darwin"] #litmus-selecttests-dialog {
+  height: 250px;
+  width: 380px;
+}
+
+
+#qa_tabbox[OS="Darwin"] .dialog-screen {
+  width: 386px;
+  height: 724px;
+  background-color: #888888;
+  opacity: .5;
+}
+
+/*-------------------------------
+               STATS
+  -------------------------------*/
+
+.stats-buglisting-listcell {
+  color: #0067ac;
+  font-weight: bold;
+}

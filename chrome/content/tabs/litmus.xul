@@ -1,0 +1,155 @@
+<?xml version="1.0"?><!-- -*- Mode: HTML -*-
+* ***** BEGIN LICENSE BLOCK *****
+* Version: MPL 1.1/GPL 2.0/LGPL 2.1
+*
+* The contents of this file are subject to the Mozilla Public License Version
+* 1.1 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+* http://www.mozilla.org/MPL/
+*
+* Software distributed under the License is distributed on an "AS IS" basis,
+* WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+* for the specific language governing rights and limitations under the
+* License.
+*
+* The Original Code is the Mozilla Community QA Extension
+*
+* The Initial Developer of the Original Code is the Mozilla Corporation.
+* Portions created by the Initial Developer are Copyright (C) 2007
+* the Initial Developer. All Rights Reserved.
+*
+* Contributor(s):
+*  Zach Lipton <zach@zachlipton.com>
+*  Ben Hsieh <bhsieh@mozilla.com>
+*
+* Alternatively, the contents of this file may be used under the terms of
+* either the GNU General Public License Version 2 or later (the "GPL"), or
+* the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+* in which case the provisions of the GPL or the LGPL are applicable instead
+* of those above. If you wish to allow use of your version of this file only
+* under the terms of either the GPL or the LGPL, and not to allow others to
+* use your version of this file under the terms of the MPL, indicate your
+* decision by deleting the provisions above and replace them with the notice
+* and other provisions required by the GPL or the LGPL. If you do not delete
+* the provisions above, a recipient may use your version of this file under
+* the terms of any one of the MPL, the GPL or the LGPL.
+*
+* ***** END LICENSE BLOCK ***** -->
+
+
+<!DOCTYPE overlay [
+<!ENTITY % qaDTD SYSTEM "chrome://qa/locale/qa.dtd"> %qaDTD;
+<!ENTITY % xhtmlDTD SYSTEM "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> %xhtmlDTD;
+]>
+
+<overlay id="qa-litmus-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
+<tabpanel id="qa-tab-litmus" onload="litmus.loadSavedTest();"
+                             onunload="litmus.saveTestcase();">
+<stack>
+  <vbox id="litmus-testcase-box" top="0px" left="0px">
+    <vbox id="litmus-summary-box">
+      <description id="litmus-testcase-summary" value="" crop="end"/>
+      <hbox align="center">
+        <label id="litmus-testcase-id" value="&qa.litmus.testlist.initiallabel;" crop="end" />
+        <hbox id="litmus-progress-box">
+          <label value="" id="litmus-testcase-progress"/>
+        </hbox>
+        <button id="litmus-testcase-skip" label="Skip &raquo;"
+                disabled="true"
+                oncommand="litmus.nextTestcase();"/>
+        
+        <button id="litmus-select-button" label="&qa.litmus.selecttests;"
+                oncommand="litmus.showSelectTests();"/></hbox>
+ 
+    </vbox>
+  
+    <groupbox id="litmus-steps-box">
+      <caption label="&qa.testcase.steps;" />
+      <div xmlns="http://www.w3.org/1999/xhtml" style="overflow: auto;"
+           id="litmus-testcase-steps" />
+    </groupbox>
+
+    <groupbox id="litmus-expected-box">
+      <caption label="&qa.testcase.expected;" />
+      <div xmlns="http://www.w3.org/1999/xhtml" style="overflow: auto;"
+         id="litmus-testcase-expected" />
+    </groupbox>
+
+    <groupbox id="litmus-results-box">
+    <caption label="&qa.litmus.result;" />
+        <vbox>
+          <vbox id="litmus-testcase-commentbox" >
+            <hbox id="litmus-submit-loading" hidden="true" align="center">
+              <label value="Submitting testcase..."/>
+              <image src="chrome://global/skin/icons/loading_16.png"/>
+            </hbox>
+            <hbox id="litmus-error-box" hidden="true" class="bug-error-box">
+              <description id="litmus-error-label"
+                     class="bug-error-label error-label" crop="end"/>
+              <hbox flex="1" pack="end">
+                <toolbarbutton class="qa-closebutton" id="bug-dupes-close"
+                               oncommand="litmus.hideBox('litmus-error-box');" />
+              </hbox>
+            </hbox>
+            <label control="litmus-testcase-comment" value="&qa.testcase.comment;" />
+          </vbox>
+          <hbox>
+            <textbox id="litmus-testcase-comment"  multiline="true"/>
+            <vbox id="litmus-testcase-result">
+              <button id="litmus-testcase-pass" label="Pass"
+                    disabled="true"
+                    oncommand="litmus.submitTestcase('Pass');"/>
+              <button id="litmus-testcase-fail" label="Fail"
+                    disabled="true"
+                    oncommand="litmus.submitTestcase('Fail');"/>
+              <button id="litmus-testcase-unclear" label="Unclear"
+                    disabled="true"
+                    oncommand="litmus.submitTestcase('Test unclear/broken');"/>
+            </vbox>
+          </hbox>
+        </vbox>
+    </groupbox>
+  </vbox>
+  <vbox id="litmus-dialog-screen" class="dialog-screen" top="0px" left="0px" hidden="true"/>
+  <vbox id="litmus-selecttests-dialog" top="100px" left="4px" hidden="true"
+        class="dialog-box">
+     <vbox>
+       <description id="litmus-selecttests-desc">&qa.litmus.select.description;</description>
+       <vbox id="litmus-testruns-box">
+         <label control="litmus-runs" value="&qa.litmus.select.runs;" />
+         <menulist id="litmus-runs" disabled="true"
+                   oncommand="litmus.runSelected();">
+           <menupopup >
+             <menuitem label="&qa.litmus.select.loading;" selected="true" />
+           </menupopup>
+         </menulist>
+       </vbox>
+       <vbox id="litmus-testgroups-box">
+         <label control="litmus-groups" value="&qa.litmus.select.groups;" />
+         <menulist id="litmus-groups" disabled="true"
+                   oncommand="litmus.groupSelected();">
+           <menupopup >
+             <menuitem label="&qa.litmus.select.loading;" selected="true" />
+           </menupopup>
+         </menulist>
+       </vbox>
+       <vbox id="litmus-subgroups-box">
+         <label control="litmus-subgroups" value="&qa.litmus.select.subgroups;" />
+         <menulist id="litmus-subgroups" disabled="true">
+            <menupopup >
+               <menuitem label="&qa.litmus.select.loading;" selected="true" />
+            </menupopup>
+         </menulist>
+       </vbox>
+       <hbox id="litmus-select-buttons"  align="right">
+         <button id="litmus-select-cancel" label="&qa.cancel;" oncommand="litmus.hideSelectTests();"/>
+         <button id="litmus-select-ok" label="&qa.ok;" disabled="true" oncommand="litmus.loadSelectedSubgroup();"/>
+       </hbox>
+    </vbox>
+  </vbox>
+</stack>
+
+</tabpanel>
+</overlay>

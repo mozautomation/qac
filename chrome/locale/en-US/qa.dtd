@@ -1,0 +1,142 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Mozilla QA Companion Code.
+   -
+   - The Initial Developer of the Original Code is the Mozilla Corporation.
+   - Portions created by the Initial Developer are Copyright (C) 2009
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -  Zach Lipton <zach@zachlipton.com>
+   -  Ben Hsieh <bhsieh@mozilla.com>
+   -  Jay Patel <jay@mozilla.org>
+   -  Aaron Train <atrain@mozilla.com>
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY qa.litmus.title "Run Tests">
+<!ENTITY qa.litmus.selecttests "Select Tests">
+<!ENTITY qa.litmus.testlist.initiallabel "No testcase, select some tests!">
+<!ENTITY qa.litmus.testlist.initialdescription "No testcase">
+<!ENTITY qa.litmus.select.description "Select a Test Run, Group, and Subgroup">
+<!ENTITY qa.litmus.result "Test Result:">
+<!ENTITY qa.litmus.select.runs "Test Run:">
+<!ENTITY qa.litmus.select.groups "Test Group:">
+<!ENTITY qa.litmus.select.subgroups "Test Subgroup:">
+<!ENTITY qa.litmus.select.loading "Loading...">
+
+<!ENTITY qa.ok "OK">
+<!ENTITY qa.cancel "Cancel">
+
+<!ENTITY qa.statusbar.label "QA">
+<!ENTITY qa.mainwindow.prefs  "Preferences">
+<!ENTITY qa.mainwindow.title  "Mozilla QA Companion">
+<!ENTITY qa.testcase.steps  "Steps to Perform">
+<!ENTITY qa.testcase.expected  "Expected Results">
+<!ENTITY qa.testcase.result.pass  "Passed">
+<!ENTITY qa.testcase.result.fail  "Failed">
+<!ENTITY qa.testcase.result.unclearbroken  "Unclear or Broken">
+<!ENTITY qa.testcase.comment  "Comment:">
+<!ENTITY qa.testcase.submit "Submit">
+<!ENTITY qa.testcase.skip "Skip">
+
+<!ENTITY qa.selecttests.load  "Loading...">
+<!ENTITY qa.selecttests.header "Select Tests To Run">
+
+<!ENTITY qa.qmo.title "QMO">
+<!ENTITY qa.qmo.visit "Visit QMO">
+<!ENTITY qa.qmo.help "How you can help!">
+<!ENTITY qa.qmo.events "Upcoming events">
+<!ENTITY qa.qmo.forumposts "Recent forum topics">
+<!ENTITY qa.qmo.thelatest "The latest from QMO">
+
+<!ENTITY qa.firstrun.title "Litmus Registration and Login">
+<!ENTITY qa.firstrun.assist "Please select an option">
+<!ENTITY qa.firstrun.message "Welcome to the Mozilla QA Companion">
+<!ENTITY qa.firstrun.login_create.label "Create or Enter your Litmus account">
+<!ENTITY qa.firstrun.login "Login">
+<!ENTITY qa.firstrun.register "Register">
+<!ENTITY qa.firstrun.email "E-Mail (*): ">
+<!ENTITY qa.firstrun.password "Password (*): ">
+<!ENTITY qa.firstrun.confirm "Confirm Password (*): ">
+<!ENTITY qa.firstrun.create "Create Account">
+<!ENTITY qa.firstrun.desc "To use the Mozilla Quality Assurance Companion,
+you will need a Litmus account">
+
+<!ENTITY qa.bugzilla.title "File Bug">
+<!ENTITY qa.bugzilla.report "Bug Report">
+<!ENTITY qa.bugzilla.summary "Summary:">
+<!ENTITY qa.bugzilla.description "Description:">
+<!ENTITY qa.bugzilla.submit "Submit">
+<!ENTITY qa.bugzilla.checkdupes "Check that no one has filed your bug already:">
+<!ENTITY qa.bugzilla.dupes.loading "Checking for possible duplicate bugs...">
+<!ENTITY qa.bugzilla.submit.loading "Submitting bug report...">
+<!ENTITY qa.bugzilla.login.loading "Logging in...">
+<!ENTITY qa.bugzilla.submitted "Bug report submitted! Go see it:">
+<!ENTITY qa.bugzilla.dupes.id "Bug Id">
+<!ENTITY qa.bugzilla.dupes.summ "Summary">
+<!ENTITY qa.bugzilla.qaclink "Report QAC bugs">
+
+<!ENTITY qa.buglogin.title "Bugzilla Login">
+<!ENTITY qa.buglogin.login "Login:">
+<!ENTITY qa.buglogin.password "Password:">
+<!ENTITY qa.buglogin.noaccount "Don't have a Bugzilla account?">
+
+<!ENTITY qa.litmus.loginTitle "Litmus Login">
+<!ENTITY qa.litmus.login "Login:">
+<!ENTITY qa.litmus.password "Password:">
+<!ENTITY qa.litmus.noaccount "Don't have a Litmus account?">
+
+<!ENTITY qa.notification.inprogress "Come Join! Event in Progress Now!">
+<!ENTITY qacompanionMenu.accesskey "Q">
+<!ENTITY qacompanionMenu.label "QA Companion">
+
+<!ENTITY qa.preferences.title "QA Companion">
+<!ENTITY qa.preferences.testing.label "Testing">
+<!ENTITY qa.preferences.accounts.label "Accounts">
+<!ENTITY qa.preferences.testing.desc.label "Report test results as running on:">
+<!ENTITY qa.preferences.testing.platform.label "Platform:">
+<!ENTITY qa.preferences.testing.opsys.label "Operating System:">
+<!ENTITY qa.preferences.testing.product.label "Product:">
+<!ENTITY qa.preferences.testing.branch.label "Branch:">
+<!ENTITY qa.preferences.testing.build.label "Build Id:">
+<!ENTITY qa.preferences.testing.remember.label "Remember configuration next time QA Companion is opened">
+<!ENTITY qa.preferences.testing.restore "Restore Defaults">
+<!ENTITY qa.preferences.testing.groupbox.label "Configuration">
+<!ENTITY qa.preferences.accounts.create.litmus "Change or Create a new Litmus account">
+<!ENTITY qa.preferences.accounts.create.bugzilla "Change or Create a new Bugzilla account">
+<!ENTITY qa.preferences.accounts.changeCreate.button "Change/Create Account">
+<!ENTITY qa.preferences.accounts.checkingLogin "Checking Login...">
+
+<!ENTITY qa.stats.title "Stats">
+<!ENTITY qa.stats.personal "My Recently Submitted Test Stats">
+<!ENTITY qa.stats.personal.monthly "Monthly (Past 30 Days):">
+<!ENTITY qa.stats.personal.weekly "Weekly (Past 7 Days):">
+<!ENTITY qa.stats.personal.alltime "All Time:">
+<!ENTITY qa.stats.personal.mybugs "My Recently Filed Bugs">
+<!ENTITY qa.stats.personal.bugsummary "Summary">
+<!ENTITY qa.stats.personal.subresults "My Submission Results">
+<!ENTITY qa.stats.personal.today "Today's Results">

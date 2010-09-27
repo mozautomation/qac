@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % qaDTD SYSTEM "chrome://qa/locale/qa.dtd"> %qaDTD;
+]>
+
+<overlay id="QACPaneOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ 
+<prefwindow id="BrowserPreferences">
+ 
+<prefpane id="qacPrefPane" 
+          label="&qa.preferences.title;" 
+          image="chrome://qa/skin/qmo_logo_32x32.png"
+          onpaneload="qaPref.getConfig();" helpTopic="">
+ 
+ <preferences id="qaPreferences">
+   <preference id="qa-platform-pref" name="qa.extension.config.platform" type="string" />
+   <preference id="qa-os-pref" name="qa.extension.config.os" type="string" />
+   <preference id="qa-branch-pref" name="qa.extension.config.branch" type="string" />
+   <preference id="qa-product-pref" name="qa.extension.config.product" type="string" />
+   <preference id="qa-build-pref" name="qa.extension.config.buildId" type="string" />
+   <preference id="qa-remember-pref" name="qa.extension.config.remember" type="bool" />
+ </preferences>
+
+ <stringbundleset id="stringbundleset">
+  <stringbundle id="bundle_qa" src="chrome://qa/locale/qa.properties" />
+ </stringbundleset>
+ 
+ <script type="application/x-javascript" src="chrome://qa/content/common.js" />
+ <script type="application/x-javascript" src="chrome://qa/content/prefs.js"/>
+ <script type="application/x-javascript" src="chrome://qa/content/qa.js" />
+ 
+ <tabbox id="qacPrefs" flex="1">
+   
+   <tabs id="tabsElement">
+     <tab id="testingTab" label="&qa.preferences.testing.label;" />
+     <tab id="accountTab" label="&qa.preferences.accounts.label;" />
+   </tabs>  
+
+   <tabpanels flex="1">
+   
+   <!--Testing-->
+    <tabpanel id="testingPanel" orient="vertical">
+     <groupbox id="accountsGroup" orient="start">
+      <caption label="&qa.preferences.testing.groupbox.label;" />
+      <grid id="testingGrid">
+       <columns>
+        <column flex="1" />
+        <column flex="1" />
+       </columns>
+       <rows>
+         <row id="testingDesc">
+          <label value="&qa.preferences.testing.desc.label;" />
+          <label id="testingLoading" value="&qa.selecttests.load;" hidden="true" />
+         </row>
+         <row id="testingSpacer">
+          <label value="" />
+         </row>
+         <row id="testingPlatform"> 
+          <label value="&qa.preferences.testing.platform.label;" />
+          <menulist id="platformList" preference="qa-platform-pref" disabled="true"
+                    onselect="qaPref.menuMatchup('platformList', 'opsysList');"/>
+         </row>
+         <row id="testingOS">
+          <label value="&qa.preferences.testing.opsys.label;" />
+          <menulist id="opsysList" preference="qa-os-pref" disabled="true"
+                    onselect="this.doCommand();"/>
+         </row>
+         <row id="testingProduct">
+          <label value="&qa.preferences.testing.product.label;" />
+          <menulist id="productList" preference="qa-product-pref" disabled="true" 
+                    onselect="qaPref.menuMatchup('productList', 'branchList');
+                              qaPref.invalidateTestrun();"/>       
+         </row>
+         <row id="testingBranch">
+          <label value="&qa.preferences.testing.branch.label;" />
+          <menulist id="branchList" preference="qa-branch-pref" disabled="true"
+                    onselect="this.doCommand();" />       
+         </row>
+         <row id="testingBuild">
+           <label value="&qa.preferences.testing.build.label;"/>
+           <textbox id="buildText" preference="qa-build-pref" maxlength="14"/>
+         </row>
+       </rows>
+      </grid>
+      <hbox flex="1" pack="end">
+        <button label="&qa.preferences.testing.restore;" 
+                oncommand="qaPref.restoreDefaults();"/>
+      </hbox>
+      <checkbox label="&qa.preferences.testing.remember.label;" preference="qa-remember-pref"/>
+     </groupbox> 
+    </tabpanel>
+    
+   <!--Accounts-->
+   <tabpanel id="accountsPanel" orient="vertical">
+    <groupbox id="accountsGroup">
+     <caption label="&qa.preferences.accounts.label;" />
+      <grid id="accountsGrid">
+       <columns>
+        <column flex="1" />
+       </columns>
+       <rows id="accountsRow-1">
+        <row id="accountCreateRow_Litmus">
+         <vbox align="start">
+          <label value="&qa.preferences.accounts.create.litmus;" />
+         </vbox>
+         <button id="createAccount_Litmus" 
+                 label="&qa.preferences.accounts.changeCreate.button;" 
+                 oncommand="qaPref.openAccountLitmus();" />
+        </row>
+        <row id="accountCreate_Bugzilla">
+          <vbox>
+           <label value="&qa.preferences.accounts.create.bugzilla;" />
+          </vbox>
+          <button id="createAccount_Bugzilla"
+                  label="&qa.preferences.accounts.changeCreate.button;"
+                  oncommand="qaPref.openAccountBugzilla();" />
+        </row> 
+      </rows>
+      </grid>
+      </groupbox>
+     </tabpanel>
+
+   </tabpanels>
+ </tabbox>
+ </prefpane>
+</prefwindow>
+</overlay>

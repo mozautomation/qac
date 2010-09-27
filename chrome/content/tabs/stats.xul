@@ -1,0 +1,130 @@
+<?xml version="1.0"?><!-- -*- Mode: HTML -*-
+* ***** BEGIN LICENSE BLOCK *****
+* Version: MPL 1.1/GPL 2.0/LGPL 2.1
+*
+* The contents of this file are subject to the Mozilla Public License Version
+* 1.1 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+* http://www.mozilla.org/MPL/
+*
+* Software distributed under the License is distributed on an "AS IS" basis,
+* WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+* for the specific language governing rights and limitations under the
+* License.
+*
+* The Original Code is the Mozilla Community QA Extension
+*
+* The Initial Developer of the Original Code is the Mozilla Corporation.
+* Portions created by the Initial Developer are Copyright (C) 2009
+* the Initial Developer. All Rights Reserved.
+*
+* Contributor(s):
+*  Aaron Train <atrain@mozilla.com>
+*
+* Alternatively, the contents of this file may be used under the terms of
+* either the GNU General Public License Version 2 or later (the "GPL"), or
+* the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+* in which case the provisions of the GPL or the LGPL are applicable instead
+* of those above. If you wish to allow use of your version of this file only
+* under the terms of either the GPL or the LGPL, and not to allow others to
+* use your version of this file under the terms of the MPL, indicate your
+* decision by deleting the provisions above and replace them with the notice
+* and other provisions required by the GPL or the LGPL. If you do not delete
+* the provisions above, a recipient may use your version of this file under
+* the terms of any one of the MPL, the GPL or the LGPL.
+*
+* ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE overlay [
+<!ENTITY % qaDTD SYSTEM "chrome://qa/locale/qa.dtd"> %qaDTD;
+]>
+
+<overlay id="qa-stats-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+
+<script type="application/x-javascript" src="chrome://qa/content/litmuslogin.js" />
+<script type="application/x-javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
+<script type="application/x-javascript" src="chrome://qa/content/qa.js" />
+
+<tabpanel id="qa-tab-stats">
+  <vbox flex="1">
+
+   <hbox style="padding: 5px">
+    <label id="qa-user-stats-cur" style="font-weight: bolder" />
+    <image src="chrome://global/skin/icons/loading_16.png" id="loading" style="visibility: hidden" />
+   </hbox>
+
+    <groupbox id="qa-user-stats">
+      <caption id="qa-user-stats-caption" label="&qa.stats.personal;" />
+      <grid id="qa-stats-grid">
+       <columns>
+        <column id="qa-stats-grid-month" />
+        <column id="qa-stats-grid-week" />
+        <column id="qa-stats-alltime" />
+       </columns>
+       <rows>
+        <row id="qa-stats-row-week">
+         <label value="&qa.stats.personal.weekly;" />
+         <label id="myStats_week" />
+         <div id="myStats_week_ranking" />
+       </row>
+        <row id="qa-stats-row-month">
+          <label value="&qa.stats.personal.monthly;" />
+          <label id="myStats_month" />
+          <div id="myStats_month_ranking" />
+        </row>
+        <row id="qa-stats-row-alltime">
+          <label value="&qa.stats.personal.alltime;" />
+          <label id="myStats_alltime" />
+          <div id="myStats_alltime_ranking" />
+        </row>
+       </rows>
+      </grid>
+    </groupbox>
+    
+    <caption id="qa-user-stats-bugs" label="&qa.stats.personal.mybugs;" />
+     <listbox id="qa-user-stats-buglist" seltype="single" onselect="qaStats.openBug();">
+     <listhead>
+      <listheader onclick="qaStats.sortRecentBugs();" width="75px" label="&qa.bugzilla.dupes.id;" />
+      <listheader label="&qa.stats.personal.bugsummary;" />
+     </listhead> 
+     <listcols>
+      <listcol />
+      <listcol flex="1" />
+     </listcols>
+    </listbox>
+
+  <hbox>
+   <groupbox>
+    <caption label="&qa.stats.personal.subresults;" />
+     <div id="qa-user-stats-results">
+      <html:ul>
+        <html:li>
+         <html:a target="_blank" id="qa-user-stats-results-today">Today's Results</html:a>
+        </html:li>
+        <html:li>
+         <html:a target="_blank" id="qa-user-stats-results-week">Week's Results</html:a>
+        </html:li>
+      </html:ul>
+     </div>
+   </groupbox>
+   <groupbox>
+    <caption label="Recommended Testing" />
+     <div id="qa-stats-recommended">
+      <html:ul>
+       <html:li>
+        <html:a target="_blank" id="qa-user-stats-recommended-failed" />
+       </html:li>
+       <html:li>
+         <html:a target="_blank" id="qa-user-stats-recommended-unclear"></html:a>
+       </html:li>
+      </html:ul>
+     </div>
+   </groupbox>
+  </hbox>
+
+  </vbox>
+</tabpanel>
+
+</overlay>

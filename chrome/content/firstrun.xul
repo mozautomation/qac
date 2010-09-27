@@ -1,0 +1,120 @@
+<?xml version="1.0"?><!-- -*- Mode: HTML -*-
+- ***** BEGIN LICENSE BLOCK *****
+- Version: MPL 1.1/GPL 2.0/LGPL 2.1
+-
+- The contents of this file are subject to the Mozilla Public License Version
+- 1.1 (the "License"); you may not use this file except in compliance with
+- the License. You may obtain a copy of the License at
+- http://www.mozilla.org/MPL/
+-
+- Software distributed under the License is distributed on an "AS IS" basis,
+- WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+- for the specific language governing rights and limitations under the
+- License.
+-
+- The Original Code is the Mozilla Community QA Extension
+-
+- The Initial Developer of the Original Code is the Mozilla Corporation.
+- Portions created by the Initial Developer are Copyright (C) 2009
+- the Initial Developer. All Rights Reserved.
+-
+- Contributor(s):
+-   Aaron Train <atrain@mozilla.com>
+-
+- Alternatively, the contents of this file may be used under the terms of
+- either the GNU General Public License Version 2 or later (the "GPL"), or
+- the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+- in which case the provisions of the GPL or the LGPL are applicable instead
+- of those above. If you wish to allow use of your version of this file only
+- under the terms of either the GPL or the LGPL, and not to allow others to
+- use your version of this file under the terms of the MPL, indicate your
+- decision by deleting the provisions above and replace them with the notice
+- and other provisions required by the LGPL or the GPL. If you do not delete
+- the provisions above, a recipient may use your version of this file under
+- the terms of any one of the MPL, the GPL or the LGPL.
+-
+- ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://qa/skin/qa.css" type="text/css"?>
+<?xml-stylesheet href="chrome://qa/skin/platform.css" type="text/css"?>
+
+<!DOCTYPE window [
+<!ENTITY % qaDTD SYSTEM "chrome://qa/locale/qa.dtd"> %qaDTD;
+]>
+
+<window
+    id="qa-qmo-firstrun-window"
+    title="&qa.firstrun.title;"
+    orient="horizontal"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    onload="qaFirstRun.checkCredentials()">
+
+<stringbundleset id="stringbundleset">
+ <stringbundle id="bundle_qa" src="chrome://qa/locale/qa.properties" />
+ <stringbundle id="bundle_urls" src="chrome://qa/locale/urls.properties" />
+</stringbundleset>
+
+<script type="application/x-javascript" src="chrome://qa/content/common.js" />
+<script type="application/x-javascript" src="chrome://qa/content/qa.js" />
+<script type="application/x-javascript" src="chrome://qa/content/prefs.js" />
+<script type="application/x-javascript" src="chrome://qa/content/firstrun.js" />
+<script type="application/x-javascript" src="chrome://qa/content/login.js" />
+
+<vbox>
+ <groupbox id="qa_firstrun" style="background-color: white">
+  <hbox>
+    <vbox>
+     <image style="height: 64px; width: 64px;" src="chrome://qa/skin/qmo_favicon.png" />
+    </vbox>
+  <vbox>
+    <label value="&qa.firstrun.message;" />
+    <hbox>
+     <label id="qa-firstrun-desc" value="&qa.firstrun.desc;" /> 
+    </hbox>
+  </vbox>
+ </hbox> 
+</groupbox>
+ <groupbox id="qa_firstrun" style="background-color: white">
+   	<grid>
+	    <columns>
+	     <column />
+	    </columns>
+	       <rows>
+	         <row>
+		      <caption id="qa-firstrun-desc" label="&qa.firstrun.login_create.label;" />
+		     </row>
+		     <row>
+		      <label value="&qa.firstrun.email;" />
+			  <textbox size="25" id="qa-firstrun-email" />
+		     </row>
+		     <row>
+		   	  <label value="&qa.firstrun.password;" />
+			  <textbox size="25" id="qa-firstrun-password" type="password"/>
+		     </row>
+		     <row>
+		      <label value="&qa.firstrun.confirm;" id="qa-firstrun-confirm-label" />
+			  <textbox size="25" id="qa-firstrun-confirm" type="password"/>
+		     </row>
+		     <row>
+		      <button id="qa-firstrun-create" label="&qa.firstrun.create;"
+		              oncommand="qaFirstRun.register();" />
+		      <button id="qa-firstrun-login" label="&qa.firstrun.login;" 
+				               oncommand="qaFirstRun.login();" />
+		     </row>
+	       </rows>
+	      </grid>
+ </groupbox>
+
+<statusbar>
+<statusbarpanel>
+  <image src="chrome://global/skin/icons/question-16.png" id="help" onclick="qaFirstRun.windowHelp();" />
+</statusbarpanel>
+<spacer flex="1" />
+<statusbarpanel>
+  <image src="chrome://global/skin/icons/loading_16.png" id="loading" style="visibility: hidden" />
+</statusbarpanel>
+</statusbar>
+
+</vbox>
+
+</window>
