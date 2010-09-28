@@ -103,13 +103,13 @@ var litmus = {
     var sysconfig = qaPref.getSysConfig();
     var product = sysconfig.product;
     var branch = sysconfig.branch;
-    if(branch == "Trunk" || product == "Thunderbird" || product == "Fennec")
-      branch = 'dummy'; // no test runs for Trunk, so get all of them
-    if(product == "Firefox" && branch == 'Trunk')
-      branch = '3.6 Branch';
+    branch = (parseInt(branch) == branch) ? branch + ".0" : branch;
+    branch += " Branch";
+
     var url = litmus.baseURL + "json.cgi?test_runs_by_branch_product_name=1"
                + "&testgroup_id=&product_name=" + product
                + "&branch_name=" + branch;
+  
     qaTools.getJSON(url, getEnabled, function() {
                 throw "QAC: Error fetching " + url;});
   },

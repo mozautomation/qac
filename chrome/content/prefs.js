@@ -211,24 +211,8 @@ var qaPref = {
     var appinfo = Components.classes["@mozilla.org/xre/app-info;1"]
                   .getService(Components.interfaces.nsIXULAppInfo);
 
-    var branch;
-    if ((/^3\.7/).exec(appinfo.version))
-      branch = 'Trunk';
-    else if ((/^3\.6/).exec(appinfo.version))
-      branch = '3.6 Branch';
-    else if ((/^3\.5/).exec(appinfo.version))
-        branch = '3.5 Branch';
-    else if ((/^3\.1/).exec(appinfo.version))
-      branch = '3.1 Branch';
-    else if ((/^3\.0/).exec(appinfo.version))
-      branch = '3.0 Branch';
-    else if ((/^2\.0/).exec(appinfo.version))
-      branch = '2.0 Branch';
-    else if ((/^1\.5\./).exec(appinfo.version))
-      branch = '1.5 Branch';
-
-    if (! branch) { throw "unknown branch" }
-
+    var branch = parseFloat(appinfo.version);
+    
     var platform;
     if ((/^MacPPC/).exec(navigator.platform))
       platform = 'Mac (PPC)';
