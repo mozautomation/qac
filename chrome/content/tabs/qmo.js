@@ -35,104 +35,26 @@
 * ***** END LICENSE BLOCK ***** */
 
 var qmo = {
-  populateFields : function() {
-    qmo.populateForumPosts();
-    qmo.populateEvents();
-    qmo.populateQMONews();
-    qmo.populateHowHelp();
-  },
-  populateForumPosts : function() {
-    var numPosts = 5; // show top 5 topics
-    var postBox = document.getElementById('qa-qmo-forumposts');
-    qaTools.showHideLoadingMessage(postBox, true);
-    var url = qaMain.urlbundle.getString("qa.extension.url.qmo.forum_topics");
-    var callback = function(feed) {
-      var items = feed.items;
-      qaTools.showHideLoadingMessage(postBox, false);
-      if (items.length < numPosts)
-        numPosts=items.length;
-      for (var i=0; i<numPosts; i++) {
-        var item = items.queryElementAt(i, Components.interfaces.nsIFeedEntry);
-        if (item != null) {
-          qmo.populateLinkBox(postBox,
-            [{text : item.title.plainText(), url : item.link.resolve("")}]);
-        }
-      }
-    };
-    qaTools.fetchFeed(url, callback);
-  },
-  populateEvents : function() {
-    var numEvents = 5; // show 5 events
-    var eventBox = document.getElementById('qa-qmo-events');
-    qaTools.showHideLoadingMessage(eventBox, true);
-    var url = qaMain.urlbundle.getString("qa.extension.url.qmo.upcomingEvents");
-    var callback = function(feed) {
-      var items = feed.items;
-      qaTools.showHideLoadingMessage(eventBox, false);
-      if (items.length < numEvents)
-        numEvents=items.length;
-      for (var i=0; i<numEvents; i++) {
-        var item = items.queryElementAt(i, Components.interfaces.nsIFeedEntry);
-        if (item != null) {
-          qmo.populateLinkBox(eventBox,
-            [{text : item.title.plainText(), url : item.link.resolve("")}]);
-        }
-      }
-    };
-    qaTools.fetchFeed(url, callback);
-  },
   populateQMONews : function() {
     var box = document.getElementById('qa-qmo-latest');
     var url = qaMain.urlbundle.getString("qa.extension.url.qmo.news");
     qaTools.showHideLoadingMessage(box, true);
     var callback = function(feed) {
       var items = feed.items;
-      var item = items.queryElementAt(0, Components.interfaces.nsIFeedEntry);
       qaTools.showHideLoadingMessage(box, false);
-      if (item != null) { // just grab the first item
-        var content = item.summary;
-        var fragment = content.createDocumentFragment(box);
-
-        box.appendChild(fragment);
+      for(var i = 0; i < 2; i++) {
+        var item = items.queryElementAt(i, Components.interfaces.nsIFeedEntry);
+        if (item != null) {
+          var content = item.summary;
+          var itemBox = document.createElement("vbox");
+          var fragment = content.createDocumentFragment(itemBox);
+          itemBox.className = "qmo-news-item";
+          box.appendChild(itemBox);
+          itemBox.appendChild(fragment);
+        }
       }
       qaTools.assignLinkHandlers(box);
     }
     qaTools.fetchFeed(url, callback);
-  },
-  populateHowHelp : function() {
-    var box = document.getElementById('qa-qmo-help');
-    var url = qaMain.urlbundle.getString("qa.extension.url.qmo.howhelp");
-    qaTools.showHideLoadingMessage(box, true);
-    var callback = function(feed) {
-      var items = feed.items;
-      var item = items.queryElementAt(0, Components.interfaces.nsIFeedEntry);
-      qaTools.showHideLoadingMessage(box, false);
-      if (item != null) { // just grab the first item
-        var content = item.summary;
-        var fragment = content.createDocumentFragment(box);
-
-        box.appendChild(fragment);
-      }
-      qaTools.assignLinkHandlers(box);
-    }
-    qaTools.fetchFeed(url, callback);
-  },
-  populateLinkBox : function(box, links, chars) {
-    var list = box.childNodes[1];
-    for (var i=0; i<links.length; i++) {
-      var elem = list.appendChild(document.createElementNS(qaMain.htmlNS,"li"));
-      var a = elem.appendChild(document.createElementNS(qaMain.htmlNS,"a"));
-
-      // limit text to chars characters:
-      var text = links[i].text;
-      if (chars && chars>0 && text.length > chars) {
-        a.setAttribute("tooltiptext", text);
-        text = text.substring(0, chars-3)+"...";
-      }
-
-      a.textContent = text;
-      a.href = links[i].url;
-      qaTools.assignLinkHandler(a);
-    }
   }
 };

@@ -145,6 +145,10 @@ tab:focus > .tab-middle {
   max-height: 430px;
 }
 
+.qmo-news-item {
+  margin-top: 14px;
+}
+
 /*-------------------------------
                LITMUS
   -------------------------------*/

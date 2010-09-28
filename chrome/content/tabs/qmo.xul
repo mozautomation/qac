@@ -45,37 +45,11 @@
 
 
 <script type="application/x-javascript">
-  window.addEventListener('load', qmo.populateFields, false)
+  window.addEventListener('load', qmo.populateQMONews, false)
 </script>
 
 <tabpanel id="qa-tab-qmo">
 <vbox flex="1">
-  
-  <hbox>
-  <groupbox hidden="true">
-    <caption label="&qa.qmo.help;" />
-    <div xmlns="http://www.w3.org/1999/xhtml"
-         id="qa-qmo-help" crop="end">
-    </div>
-  </groupbox>
-  <groupbox flex="1">
-    <caption label="&qa.qmo.events;" />
-    <div xmlns="http://www.w3.org/1999/xhtml"
-         id="qa-qmo-events" flex="1" crop="end">
-      <ul>
-      </ul>
-    </div>
-  </groupbox>
-  </hbox>
-  
-  <groupbox hidden="true">
-    <caption label="&qa.qmo.forumposts;" />
-    <div xmlns="http://www.w3.org/1999/xhtml" id="qa-qmo-forumposts" crop="end" flex="1">
-        <ul>
-        </ul>
-    </div>
-  </groupbox>
-
   <groupbox id="qa-qmo-latestbox" flex="0">
     <caption label="&qa.qmo.thelatest;" />
     <div xmlns="http://www.w3.org/1999/xhtml" id="qa-qmo-latest" crop="end" flex="1">
