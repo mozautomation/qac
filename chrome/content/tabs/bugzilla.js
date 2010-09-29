@@ -61,7 +61,7 @@ var bugzilla = {
   
   submitBug : function() {
     var dupes = document.getElementById("dupes-box");
-    
+
     var summary = document.getElementById("bug-summary-text").value;
     if(/^\W*$/.test(summary)) {
       alert(qaMain.bundle.getString("qa.bugzilla.nosummary"));
@@ -249,20 +249,26 @@ var bugzilla = {
         break;
     }
 
-    if(/Mac OS 10/.exec(opsysPref)) {
+    if(/Mac OS 10/.test(opsysPref)) {
       opsys = 'Mac OS X';
     }
-    else if(/Windows-mobile/.exec(platformPref)) {
+    else if(/Windows-mobile/.test(platformPref)) {
       opsys = 'Windows Mobile 6 Professional';
     }
-    else if(/^Solaris/.exec(opsysPref)) {
+    else if(/^Solaris/.test(opsysPref)) {
       opsys = 'Solaris';
     }
-    else if(/Linux-maemo/.exec(platformPref)) {
+    else if(/Linux-maemo/.test(platformPref)) {
       opsys = 'Linux (embedded)';
     }
+    else if(/Windows 7/.test(opsysPref)) {
+      opsys = "Windows 7";
+    }
+    else if(/Linux/.test(opsysPref)) {
+      opsys = "Linux";
+    }
     else {
-      opsys = opsysPref;
+      opsys = opsysPref; 
     }
 
     switch(productPref) {

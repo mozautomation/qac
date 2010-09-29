@@ -109,7 +109,7 @@ var litmus = {
     var url = litmus.baseURL + "json.cgi?test_runs_by_branch_product_name=1"
                + "&testgroup_id=&product_name=" + product
                + "&branch_name=" + branch;
-  
+
     qaTools.getJSON(url, getEnabled, function() {
                 throw "QAC: Error fetching " + url;});
   },
