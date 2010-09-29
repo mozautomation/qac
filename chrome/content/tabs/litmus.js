@@ -103,9 +103,6 @@ var litmus = {
     var sysconfig = qaPref.getSysConfig();
     var product = sysconfig.product;
     var branch = sysconfig.branch;
-    branch = (parseInt(branch) == branch) ? branch + ".0" : branch;
-    branch += " Branch";
-
     var url = litmus.baseURL + "json.cgi?test_runs_by_branch_product_name=1"
                + "&testgroup_id=&product_name=" + product
                + "&branch_name=" + branch;

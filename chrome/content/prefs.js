@@ -212,6 +212,8 @@ var qaPref = {
                   .getService(Components.interfaces.nsIXULAppInfo);
 
     var branch = parseFloat(appinfo.version);
+    branch = (parseInt(branch) == branch) ? branch + ".0" : branch;
+    branch += " Branch";
     
     var platform;
     if ((/^MacPPC/).exec(navigator.platform))

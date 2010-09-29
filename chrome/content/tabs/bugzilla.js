@@ -232,6 +232,9 @@ var bugzilla = {
     var productPref = qaPref.getPref(qaPref.prefBase + ".config.product", "char");
 
     var platform, opsys, product;
+    
+    if(branch == '4.0 Branch')
+      branch = 'Trunk';
 
     // get Bugzilla equivalent for Litmus configuration
     switch(platformPref) {
@@ -304,7 +307,7 @@ var bugzilla = {
       default:
         product = productPref;
         component = 'General';
-        break; 
+        break;
     }
     
     return { product : product,
