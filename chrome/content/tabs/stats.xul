@@ -43,9 +43,9 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   xmlns:html="http://www.w3.org/1999/xhtml">
 
-<script type="application/x-javascript" src="chrome://qa/content/litmuslogin.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
-<script type="application/x-javascript" src="chrome://qa/content/qa.js" />
+<script type="application/javascript" src="chrome://qa/content/litmuslogin.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
+<script type="application/javascript" src="chrome://qa/content/qa.js" />
 
 <tabpanel id="qa-tab-stats">
   <vbox flex="1">

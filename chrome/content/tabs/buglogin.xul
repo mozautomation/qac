@@ -56,10 +56,10 @@
     <stringbundle id="bundle_qa" src="chrome://qa/locale/qa.properties" />
   </stringbundleset>
 
-  <script type="application/x-javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/tabs/buglogin.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/login.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/common.js" />
+  <script type="application/javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
+  <script type="application/javascript" src="chrome://qa/content/tabs/buglogin.js" />
+  <script type="application/javascript" src="chrome://qa/content/login.js" />
+  <script type="application/javascript" src="chrome://qa/content/common.js" />
 
   <label id="main-msg"/>
 

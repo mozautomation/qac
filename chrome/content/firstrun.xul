@@ -54,11 +54,11 @@
  <stringbundle id="bundle_urls" src="chrome://qa/locale/urls.properties" />
 </stringbundleset>
 
-<script type="application/x-javascript" src="chrome://qa/content/common.js" />
-<script type="application/x-javascript" src="chrome://qa/content/qa.js" />
-<script type="application/x-javascript" src="chrome://qa/content/prefs.js" />
-<script type="application/x-javascript" src="chrome://qa/content/firstrun.js" />
-<script type="application/x-javascript" src="chrome://qa/content/login.js" />
+<script type="application/javascript" src="chrome://qa/content/common.js" />
+<script type="application/javascript" src="chrome://qa/content/qa.js" />
+<script type="application/javascript" src="chrome://qa/content/prefs.js" />
+<script type="application/javascript" src="chrome://qa/content/firstrun.js" />
+<script type="application/javascript" src="chrome://qa/content/login.js" />
 
 <vbox>
  <groupbox id="qa_firstrun" style="background-color: white">
