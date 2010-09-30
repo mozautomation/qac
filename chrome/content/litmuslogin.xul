@@ -56,10 +56,10 @@
     <stringbundle id="bundle_qa" src="chrome://qa/locale/qa.properties" />
   </stringbundleset>
 
-  <script type="application/x-javascript" src="chrome://qa/content/litmuslogin.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/login.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/common.js" />
-  <script type="application/x-javascript" src="chrome://qa/content/prefs.js" />
+  <script type="application/javascript" src="chrome://qa/content/litmuslogin.js" />
+  <script type="application/javascript" src="chrome://qa/content/login.js" />
+  <script type="application/javascript" src="chrome://qa/content/common.js" />
+  <script type="application/javascript" src="chrome://qa/content/prefs.js" />
  
   <vbox flex="1">
     <label id="main-msg"/>

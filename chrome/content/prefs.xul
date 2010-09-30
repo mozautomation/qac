@@ -27,9 +27,9 @@
   <stringbundle id="bundle_qa" src="chrome://qa/locale/qa.properties" />
  </stringbundleset>
  
- <script type="application/x-javascript" src="chrome://qa/content/common.js" />
- <script type="application/x-javascript" src="chrome://qa/content/prefs.js"/>
- <script type="application/x-javascript" src="chrome://qa/content/qa.js" />
+ <script type="application/javascript" src="chrome://qa/content/common.js" />
+ <script type="application/javascript" src="chrome://qa/content/prefs.js"/>
+ <script type="application/javascript" src="chrome://qa/content/qa.js" />
  
  <tabbox id="qacPrefs" flex="1">
    

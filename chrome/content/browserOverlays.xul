@@ -45,9 +45,9 @@
 <overlay id="qa"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
- <script type="application/x-javascript" src="chrome://qa/content/prefs.js" />
- <script type="application/x-javascript" src="chrome://qa/content/qa.js" />
- <script type="application/x-javascript" src="chrome://qa/content/notifications.js" />
+ <script type="application/javascript" src="chrome://qa/content/prefs.js" />
+ <script type="application/javascript" src="chrome://qa/content/qa.js" />
+ <script type="application/javascript" src="chrome://qa/content/notifications.js" />
  
  <keyset>
   <key id="open-key" modifiers="accel,shift" key="U" oncommand="qaMain.openQATool();"/>

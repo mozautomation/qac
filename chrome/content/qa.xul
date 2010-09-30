@@ -69,18 +69,18 @@
  <key id="close-key-esc" keycode="VK_ESCAPE" oncommand="qaMain.closeQATool();"/>
 </keyset>
 
-<script type="application/x-javascript" src="chrome://browser/content/utilityOverlay.js" />
-<script type="application/x-javascript" src="chrome://qa/content/litmusReporter.js" />
-<script type="application/x-javascript" src="chrome://qa/content/prefs.js" />
-<script type="application/x-javascript" src="chrome://qa/content/common.js" />
-<script type="application/x-javascript" src="chrome://qa/content/login.js" />
-<script type="application/x-javascript" src="chrome://qa/content/qa.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/litmus.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/qmo.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/bugzilla.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/showdown.js" />
-<script type="application/x-javascript" src="chrome://qa/content/tabs/stats.js" />
+<script type="application/javascript" src="chrome://browser/content/utilityOverlay.js" />
+<script type="application/javascript" src="chrome://qa/content/litmusReporter.js" />
+<script type="application/javascript" src="chrome://qa/content/prefs.js" />
+<script type="application/javascript" src="chrome://qa/content/common.js" />
+<script type="application/javascript" src="chrome://qa/content/login.js" />
+<script type="application/javascript" src="chrome://qa/content/qa.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/litmus.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/qmo.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/bugzilla.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/bugzillaRPC.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/showdown.js" />
+<script type="application/javascript" src="chrome://qa/content/tabs/stats.js" />
 
 <tabbox id="qa_tabbox" flex="1" pack="start" >
   <tabs id="qa_tabrow">

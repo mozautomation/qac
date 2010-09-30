@@ -44,7 +44,7 @@
   xmlns:html="http://www.w3.org/1999/xhtml">
 
 
-<script type="application/x-javascript">
+<script type="application/javascript">
   window.addEventListener('load', qmo.populateQMONews, false)
 </script>
 
