@@ -68,6 +68,13 @@
  <statusbarpanel class="statusbarpanel-iconic" id="qa-statusbar-overlay"
                  onclick="qaMain.openQATool();" />
  </statusbar>
+ 
+ <toolbarpalette id="BrowserToolbarPalette">
+   <toolbarbutton id="qac-toolbarbutton" class="toolbarbutton-1"
+     tooltiptext="&qa.toolbarbutton.tooltip;"
+     oncommand="qaMain.openQATool();"
+     image="chrome://qa/skin/qmo-24px.png"/>
+ </toolbarpalette>
 
  <window id="main-window">
    <vbox id="qa-notify" class="qa-notify" hidden="true">

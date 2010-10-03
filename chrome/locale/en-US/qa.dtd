@@ -51,6 +51,7 @@
 <!ENTITY qa.ok "OK">
 <!ENTITY qa.cancel "Cancel">
 
+<!ENTITY qa.toolbarbutton.tooltip "QA Companion">
 <!ENTITY qa.statusbar.label "QA">
 <!ENTITY qa.mainwindow.prefs  "Preferences">
 <!ENTITY qa.mainwindow.title  "Mozilla QA Companion">
