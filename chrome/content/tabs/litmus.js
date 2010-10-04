@@ -161,11 +161,19 @@ var litmus = {
     qaPref.setPref(qaPref.prefBase + ".litmus.runId", litmus.run.test_run_id, "int");
     qaPref.setPref(qaPref.prefBase + ".litmus.runIndex", litmus.runIndex, "int");
   },
-
+  
+  sortListByName : function(list) {
+    // sort the list ascending
+    list.sort(function(a, b) {
+      return a.name.toLowerCase() > b.name.toLowerCase();
+    });
+  },
+  
   populateRuns : function(testruns) {
     var runslist = document.getElementById("litmus-runs");
     runslist.disabled = false;
     runslist.removeAllItems();
+    litmus.sortListByName(testruns);
 
     for(var i = 0; i < testruns.length; i++) {
       var testrun = testruns[i];
@@ -178,6 +186,7 @@ var litmus = {
     litmus.selectedRun = testrun; // cache for possible loading
 
     var testgroups = testrun.testgroups;
+    litmus.sortListByName(testgroups);
     var groupslist = document.getElementById("litmus-groups");
     groupslist.disabled = false;
     groupslist.removeAllItems();
@@ -193,6 +202,7 @@ var litmus = {
     litmus.selectedGroup = testgroup;
 
     var subgroups = testgroup.subgroups;
+    litmus.sortListByName(subgroups);
     var subgrouplist = document.getElementById("litmus-subgroups");
     subgrouplist.disabled = false;
     subgrouplist.removeAllItems();
