@@ -204,7 +204,6 @@ var litmus = {
     var subgroups = testgroup.subgroups;
     litmus.sortListByName(subgroups);
     var subgrouplist = document.getElementById("litmus-subgroups");
-    subgrouplist.disabled = false;
     subgrouplist.removeAllItems();
     document.getElementById("litmus-select-ok").disabled = false;
     document.getElementById("litmus-groups").disabled = false;
@@ -214,6 +213,7 @@ var litmus = {
       subgrouplist.appendItem(subgroup.name, subgroup.subgroup_id);
     }
     subgrouplist.selectedIndex = litmus.subgroupIndex;
+    subgrouplist.disabled = false;
   },
 
   runSelected : function() {
